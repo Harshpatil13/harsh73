@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Harsh Patil - Portfolio, Education, Goals, Achievements" />
+  <meta name="author" content="Harsh Patil" />
+  <meta property="og:title" content="Harsh Patil Portfolio" />
+  <meta property="og:image" content="link-to-your-preview-image" />
+  <meta property="og:description" content="Personal introduction portfolio site." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Harsh Patil - Portfolio</title>
+  <link rel="icon" href="favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+    }
+    .day-btn {
+      transition: all 0.3s ease;
+    }
+    .day-btn:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative">
+
+<!-- Navbar with Hamburger Menu -->
+<header class="bg-gradient-to-r from-indigo-600 to-indigo-800 dark:from-indigo-800 dark:to-indigo-600 shadow sticky top-0 z-50">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-3xl text-white font-bold">Harsh Patil</h1>
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-white focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+    <ul id="nav-menu" class="hidden md:flex gap-6 text-sm text-white">
+      <li><a href="#home" class="hover:text-emerald-500">Home</a></li>
+      <li><a href="#about" class="hover:text-emerald-500">About</a></li>
+      <li><a href="#experience" class="hover:text-emerald-500">Experience</a></li>
+      <li><a href="#skills" class="hover:text-emerald-500">Skills</a></li>
+      <li><a href="#contact" class="hover:text-emerald-500">Contact</a></li>
+      <li><a href="#days-navigation" class="hover:text-emerald-500">Daily Progress</a></li>
+<li><a href="shop.html" class="hover:text-emerald-500">shop</a></li>
+      <button id="theme-toggle" class="ml-4 px-2 py-1 border rounded text-sm text-white">Toggle Theme</button>
+    </ul>
+  </nav>
+  <ul id="mobile-menu" class="md:hidden hidden flex-col px-6 pb-4 text-white bg-indigo-700">
+    <li><a href="#home" class="block py-2">Home</a></li>
+    <li><a href="#about" class="block py-2">About</a></li>
+    <li><a href="#experience" class="block py-2">Experience</a></li>
+    <li><a href="#skills" class="block py-2">Skills</a></li>
+    <li><a href="#contact" class="block py-2">Contact</a></li>
+    <li><a href="#days-navigation" class="block py-2">Daily Progress</a></li>
+<li><a href="shop.html" class="hover:text-emerald-500">shop</a></li>
+
+  </ul>
+</header>
+
+<!-- Loading Spinner -->
+<div id="loading-spinner" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
+  <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-indigo-500"></div>
+</div>
+
+<!-- Home Section -->
+<section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900">
+  <div class="container mx-auto px-6 py-16 text-center">
+    <!-- Profile Image -->
+    <div class="flex justify-center mb-8">
+      <div class="relative">
+        <img src="https://via.placeholder.com/200" alt="Harsh Patil" class="w-48 h-48 object-cover rounded-full shadow-2xl border-4 border-white dark:border-gray-700">
+        <div class="absolute -bottom-2 -right-2 bg-indigo-600 text-white rounded-full p-2 shadow-lg">
+          <i class="fas fa-check text-lg"></i>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Name and Title -->
+    <h1 class="text-4xl md:text-5xl font-bold text-indigo-800 dark:text-indigo-300 mb-4">Harsh Patil</h1>
+    <h2 class="text-2xl md:text-3xl text-indigo-600 dark:text-indigo-400 mb-6">Computer Engineer & Web Developer</h2>
+    
+    <!-- Contact Info -->
+    <div class="max-w-md mx-auto bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 mb-8">
+      <div class="flex flex-col space-y-4">
+        <div class="flex items-center justify-center space-x-3">
+          <i class="fas fa-envelope text-indigo-600 dark:text-indigo-300"></i>
+          <span>223harsh7012@sjcem.edu.in</span>
+        </div>
+        <div class="flex items-center justify-center space-x-3">
+          <i class="fas fa-phone-alt text-indigo-600 dark:text-indigo-300"></i>
+          <span>+91 9168909918</span>
+        </div>
+        <div class="flex items-center justify-center space-x-3">
+          <i class="fas fa-map-marker-alt text-indigo-600 dark:text-indigo-300"></i>
+          <span>Vasai, Maharashtra, India</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Social Links -->
+    <div class="flex justify-center space-x-4 mb-12">
+      <a href="https://www.linkedin.com/in/harsh-patil-840268367/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BTem%2FBEEeTV2rZHI0IGubLQ%3D%3D" target="_blank" class="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition-colors">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/Harshpatil13" target="_blank" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition-colors">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://wa.me/9168909918" target="_blank" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    
+    <!-- Website Link -->
+    <div class="mb-12">
+      <a href="#" class="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">
+        <i class="fas fa-globe mr-2"></i> https://harshpatil-portfolio.netlify.app
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Days Navigation Section -->
+<section id="days-navigation" class="py-16 bg-white dark:bg-gray-800">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl text-center text-indigo-700 dark:text-indigo-300 font-bold mb-12">Daily Progress</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <!-- Day 1 Button -->
+      <a href="https://harshpatil13.github.io/harshpatil/" class="day-btn">
+        <button class="btn btn-primary w-full h-24 flex flex-col items-center justify-center">
+          <span class="text-2xl mb-1">Day 1</span>
+          <span class="text-sm">Getting Started</span>
+        </button>
+      </a>
+      
+      <!-- Day 2 Button -->
+      <a href="https://harshpatil13.github.io/harshpatil21/" class="day-btn">
+        <button class="btn btn-secondary w-full h-24 flex flex-col items-center justify-center">
+          <span class="text-2xl mb-1">Day 2</span>
+          <span class="text-sm">Foundations</span>
+        </button>
+      </a>
+      
+      <!-- Day 3 Button -->
+      <a href="https://harshpatil13.github.io/harsh1/" class="day-btn">
+        <button class="btn btn-accent w-full h-24 flex flex-col items-center justify-center">
+          <span class="text-2xl mb-1">Day 3</span>
+          <span class="text-sm">Building Blocks</span>
+        </button>
+      </a>
+      
+      <!-- Day 4 Button -->
+      <a href="https://harshpatil13.github.io/harsh98/" class="day-btn">
+        <button class="btn btn-info w-full h-24 flex flex-col items-center justify-center">
+          <span class="text-2xl mb-1">Day 4</span>
+          <span class="text-sm">Advanced Concepts</span>
+        </button>
+      </a>
+      
+      <!-- Day 5 Button -->
+      <a href="/day5" class="day-btn">
+        <button class="btn btn-success w-full h-24 flex flex-col items-center justify-center">
+          <span class="text-2xl mb-1">Day 5</span>
+          <span class="text-sm">Final Project</span>
+        </button>
+      </a>
+    </div>
+    
+    <!-- Progress Bar -->
+    <div class="mt-12 max-w-2xl mx-auto">
+      <h3 class="text-xl font-semibold text-center mb-4 text-indigo-700 dark:text-indigo-300">Overall Progress</h3>
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm font-medium">0%</span>
+        <span class="text-sm font-medium">100%</span>
+      </div>
+      <progress class="progress progress-primary w-full h-4" value="100" max="100"></progress>
+      <p class="text-center mt-2 text-gray-600 dark:text-gray-400">100% completed (5 of 5 days)</p>
+    </div>
+  </div>
+</section>
+
+<!-- About Me Section -->
+<section id="about" class="py-16 bg-gray-100 dark:bg-gray-900">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl text-indigo-700 dark:text-indigo-300 font-bold mb-6">About Me</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Personal Information</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <i class="fas fa-user mr-3 mt-1 text-indigo-600"></i>
+            <div>
+              <span class="font-medium">Name:</span> Harsh Patil
+            </div>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-map-marker-alt mr-3 mt-1 text-indigo-600"></i>
+            <div>
+              <span class="font-medium">Location:</span> Vasai, India
+            </div>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-graduation-cap mr-3 mt-1 text-indigo-600"></i>
+            <div>
+              <span class="font-medium">Education:</span> Computer Engineering
+            </div>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-language mr-3 mt-1 text-indigo-600"></i>
+            <div>
+              <span class="font-medium">Languages:</span> English, Hindi, Marathi
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Bio</h3>
+        <p class="mb-4">I'm a passionate computer engineering student with a strong interest in web development and software engineering. I enjoy creating beautiful, functional websites and applications that solve real-world problems.</p>
+        <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="py-16 bg-white dark:bg-gray-800">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl text-indigo-700 dark:text-indigo-300 font-bold mb-6">Experience</h2>
+    <div class="space-y-8">
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+            <div>
+              <h3 class="card-title text-xl">Software Developer Intern</h3>
+              <p class="text-gray-600 dark:text-gray-400">Tech Solutions | Jun 2024 - Aug 2024</p>
+            </div>
+            <div class="badge badge-primary mt-2 md:mt-0">Internship</div>
+          </div>
+          <p class="mt-4">Worked on developing and maintaining web applications using React and Node.js. Collaborated with the team to implement new features and improve application performance.</p>
+          <div class="mt-4">
+            <div class="badge badge-outline mr-2">React</div>
+            <div class="badge badge-outline mr-2">Node.js</div>
+            <div class="badge badge-outline">MongoDB</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+            <div>
+              <h3 class="card-title text-xl">Freelance Web Developer</h3>
+              <p class="text-gray-600 dark:text-gray-400">Self-employed | Jan 2023 - Present</p>
+            </div>
+            <div class="badge badge-secondary mt-2 md:mt-0">Freelance</div>
+          </div>
+          <p class="mt-4">Designed and developed custom websites for small businesses and startups. Provided end-to-end solutions from concept to deployment, including UI/UX design, frontend development, and backend integration.</p>
+          <div class="mt-4">
+            <div class="badge badge-outline mr-2">HTML/CSS</div>
+            <div class="badge badge-outline mr-2">JavaScript</div>
+            <div class="badge badge-outline mr-2">PHP</div>
+            <div class="badge badge-outline">WordPress</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-16 bg-gray-100 dark:bg-gray-900">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl text-indigo-700 dark:text-indigo-300 font-bold mb-6">Skills</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Frontend Skills -->
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML5" class="w-12 h-12">
+          <h3 class="card-title mt-2">HTML5</h3>
+          <progress class="progress progress-primary w-full mt-2" value="90" max="100"></progress>
+        </div>
+      </div>
+      
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS3" class="w-12 h-12">
+          <h3 class="card-title mt-2">CSS3</h3>
+          <progress class="progress progress-primary w-full mt-2" value="85" max="100"></progress>
+        </div>
+      </div>
+      
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript" class="w-12 h-12">
+          <h3 class="card-title mt-2">JavaScript</h3>
+          <progress class="progress progress-primary w-full mt-2" value="80" max="100"></progress>
+        </div>
+      </div>
+      
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React" class="w-12 h-12">
+          <h3 class="card-title mt-2">React</h3>
+          <progress class="progress progress-primary w-full mt-2" value="75" max="100"></progress>
+        </div>
+      </div>
+      
+      <!-- Backend Skills -->
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/nodejs.png" alt="Node.js" class="w-12 h-12">
+          <h3 class="card-title mt-2">Node.js</h3>
+          <progress class="progress progress-primary w-full mt-2" value="70" max="100"></progress>
+        </div>
+      </div>
+      
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/python.png" alt="Python" class="w-12 h-12">
+          <h3 class="card-title mt-2">Python</h3>
+          <progress class="progress progress-primary w-full mt-2" value="65" max="100"></progress>
+        </div>
+      </div>
+      
+      <!-- Tools -->
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/git.png" alt="Git" class="w-12 h-12">
+          <h3 class="card-title mt-2">Git</h3>
+          <progress class="progress progress-primary w-full mt-2" value="80" max="100"></progress>
+        </div>
+      </div>
+      
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker" class="w-12 h-12">
+          <h3 class="card-title mt-2">Docker</h3>
+          <progress class="progress progress-primary w-full mt-2" value="60" max="100"></progress>
+        </div>
+      </div>
+      
+      <!-- Databases -->
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB" class="w-12 h-12">
+          <h3 class="card-title mt-2">MongoDB</h3>
+          <progress class="progress progress-primary w-full mt-2" value="70" max="100"></progress>
+        </div>
+      </div>
+      
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/mysql.png" alt="MySQL" class="w-12 h-12">
+          <h3 class="card-title mt-2">MySQL</h3>
+          <progress class="progress progress-primary w-full mt-2" value="75" max="100"></progress>
+        </div>
+      </div>
+      
+      <!-- UI/UX -->
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/tailwindcss.png" alt="Tailwind CSS" class="w-12 h-12">
+          <h3 class="card-title mt-2">Tailwind CSS</h3>
+          <progress class="progress progress-primary w-full mt-2" value="85" max="100"></progress>
+        </div>
+      </div>
+      
+      <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+        <div class="card-body items-center text-center">
+          <img src="https://img.icons8.com/color/48/000000/figma.png" alt="Figma" class="w-12 h-12">
+          <h3 class="card-title mt-2">Figma</h3>
+          <progress class="progress progress-primary w-full mt-2" value="65" max="100"></progress>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-16 bg-white dark:bg-gray-800">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl text-indigo-700 dark:text-indigo-300 font-bold mb-6">Contact Me</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Contact Information -->
+      <div>
+        <h3 class="text-xl font-semibold mb-6">Get in Touch</h3>
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4">
+            <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full">
+              <i class="fas fa-map-marker-alt text-indigo-600 dark:text-indigo-300 text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold">Address</h4>
+              <p class="text-gray-600 dark:text-gray-400">Vasai, Maharashtra, India</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full">
+              <i class="fas fa-envelope text-indigo-600 dark:text-indigo-300 text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold">Email</h4>
+                <a href="mailto:223harsh7012@sjcem.edu.in" class="text-indigo-500 hover:underline block">📧 223harsh7012@sjcem.edu.in</a>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full">
+              <i class="fas fa-phone-alt text-indigo-600 dark:text-indigo-300 text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold">Phone</h4>
+                     <a href="tel:+91 9168909918" class="text-indigo-500 hover:underline block">📞 +91 9168909918</a>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full">
+              <i class="fab fa-linkedin-in text-indigo-600 dark:text-indigo-300 text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold">LinkedIn</h4>
+              <p class="text-gray-600 dark:text-gray-400">
+                       <a href="https://www.linkedin.com/in/harsh-patil-840268367/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BTem%2FBEEeTV2rZHI0IGubLQ%3D%3D" class="text-indigo-500 hover:underline block" target="_blank">🔗 LinkedIn</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div class="mt-8">
+          <h4 class="font-semibold mb-4">Connect with me</h4>
+          <div class="flex space-x-4">
+            <a href="https://github.com/Harshpatil13" target="_blank" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition-colors">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://wa.me/9168909918" target="_blank" class="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-colors">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          
+            <a href="https://www.instagram.com/" target="_blank" class="bg-pink-500 text-white p-3 rounded-full hover:bg-pink-600 transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div>
+        <h3 class="text-xl font-semibold mb-6">Send Me a Message</h3>
+        <form class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
+              <input type="text" id="name" class="input input-bordered w-full" placeholder="Your name" required>
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium mb-1">Email Address</label>
+              <input type="email" id="email" class="input input-bordered w-full" placeholder="Your email" required>
+            </div>
+          </div>
+          <div>
+            <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+            <input type="text" id="subject" class="input input-bordered w-full" placeholder="Subject">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium mb-1">Message</label>
+            <textarea id="message" rows="4" class="textarea textarea-bordered w-full" placeholder="Your message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-full">
+            <i class="fas fa-paper-plane mr-2"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-8">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <h3 class="text-xl font-bold">Harsh Patil</h3>
+        <p class="text-gray-400">Computer Engineer & Web Developer</p>
+      </div>
+      <div class="flex space-x-4">
+        <a href="https://github.com/Harshpatil13" target="_blank" class="text-gray-400 hover:text-white">
+          <i class="fab fa-github text-xl"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/harsh-patil" target="_blank" class="text-gray-400 hover:text-white">
+          <i class="fab fa-linkedin-in text-xl"></i>
+        </a>
+        <a href="https://wa.me/9168909918" target="_blank" class="text-gray-400 hover:text-white">
+          <i class="fab fa-whatsapp text-xl"></i>
+        </a>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+      <p>&copy; 2023 Harsh Patil. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" id="scrollTopBtn" class="fixed bottom-5 right-5 p-3 bg-indigo-600 text-white rounded-full shadow-lg hidden z-50">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // Hamburger menu toggle
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Theme Toggle
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+  });
+
+  // Check for saved theme preference
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.documentElement.classList.add('dark');
+  }
+
+  // Scroll to top button
+  window.onscroll = function () {
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      scrollBtn.classList.remove('hidden');
+    } else {
+      scrollBtn.classList.add('hidden');
+    }
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Simulated Loading
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const spinner = document.getElementById('loading-spinner');
+      spinner.style.display = 'none';
+    }, 1000);
+  });
+
+  // Form submission
+  const contactForm = document.querySelector('form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! I will get back to you soon.');
+      this.reset();
+    });
+  }
+</script>
+
+</body>
+</html>

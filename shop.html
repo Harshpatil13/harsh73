@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trendy Tees Shop - Complete Shopping Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .checkout-step { display: none; }
+        .checkout-step.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-4">
+            <a href="C:\Users\HARSH\Downloads\index (5).html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                <i class="fas fa-arrow-left mr-1"></i> Back to Portfolio
+            </a>
+            <div class="text-xl font-bold">Trendy Tees</div>
+        </div>
+        <ul class="hidden md:flex gap-6 items-center">
+            <li><a href="#" class="hover:text-blue-500" onclick="showTab('home')">Home</a></li>
+            <li><a href="#" class="hover:text-blue-500" onclick="showTab('products')">Products</a></li>
+            <li><button onclick="toggleCart()" class="hover:text-blue-500 flex items-center">
+                <i class="fas fa-shopping-cart mr-1"></i> (<span id="cart-count">0</span>)
+            </button></li>
+        </ul>
+        <button class="md:hidden" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-white shadow-lg absolute top-16 right-4 w-48 p-4 z-40 rounded-md">
+        <ul class="space-y-2">
+            <li><a href="#" class="block hover:text-blue-500" onclick="showTab('home')">Home</a></li>
+            <li><a href="#" class="block hover:text-blue-500" onclick="showTab('products')">Products</a></li>
+            <li><button onclick="toggleCart()" class="hover:text-blue-500 w-full text-left">Cart (<span id="cart-count-mobile">0</span>)</button></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active fade-in">
+            <!-- Hero Section -->
+            <section class="bg-gradient-to-r from-blue-400 to-purple-500 text-white text-center p-10">
+                <h1 class="text-4xl font-bold mb-4">Trendy Tees for Everyone</h1>
+                <p class="text-xl mb-6">Shop the latest styles now!</p>
+                <button onclick="showTab('products')" class="bg-white text-blue-600 px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition">
+                    Browse Collection <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="p-8 max-w-6xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 text-center">Featured Products</h2>
+                <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0W4OXWl4dgXweyRMje8YoXBkpqLuDaUWY9P-V0LrhXiZorIqVexK2wHPZlCr7vmQk6j0&usqp=CAU" 
+                             alt="Classic Tee" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg">Classic Tee</h3>
+                            <p class="text-gray-600 mb-2">$19.99</p>
+                            <button onclick="addToCart(1)" class="w-full bg-blue-500 text-white py-1 rounded hover:bg-blue-600 transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                        <img src="https://i.pinimg.com/564x/c1/1d/16/c11d164de692594acf53c9a855093139.jpg" 
+                             alt="V-Neck Tee" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg">V-Neck Tee</h3>
+                            <p class="text-gray-600 mb-2">$21.99</p>
+                            <button onclick="addToCart(2)" class="w-full bg-blue-500 text-white py-1 rounded hover:bg-blue-600 transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                        <img src="https://content-management-files.canva.com/cdn-cgi/image/f=auto,q=70/2fdbd7ab-f378-4c63-8b21-c944ad2633fd/header_t-shirts2.jpg" 
+                             alt="Striped Tee" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg">Striped Tee</h3>
+                            <p class="text-gray-600 mb-2">$22.99</p>
+                            <button onclick="addToCart(3)" class="w-full bg-blue-500 text-white py-1 rounded hover:bg-blue-600 transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Products Tab -->
+        <div id="products" class="tab-content p-6 max-w-6xl mx-auto fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">All Products</h2>
+                <div class="flex space-x-2">
+                    <button class="px-3 py-1 bg-gray-200 rounded" onclick="filterProducts('all')">All</button>
+                    <button class="px-3 py-1 bg-gray-200 rounded" onclick="filterProducts('men')">Men</button>
+                    <button class="px-3 py-1 bg-gray-200 rounded" onclick="filterProducts('women')">Women</button>
+                </div>
+            </div>
+            
+            <div id="product-grid" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"></div>
+        </div>
+
+        <!-- Product Detail Tab -->
+        <div id="product-detail" class="tab-content p-6 max-w-6xl mx-auto fade-in">
+            <div id="product-detail-content" class="bg-white rounded-lg shadow-md overflow-hidden">
+                <!-- Content will be loaded dynamically -->
+            </div>
+            <button onclick="showTab('products')" class="mt-4 text-blue-500 hover:text-blue-700">
+                <i class="fas fa-arrow-left mr-1"></i> Back to Products
+            </button>
+        </div>
+
+        <!-- Checkout Tab -->
+        <div id="checkout" class="tab-content p-6 max-w-3xl mx-auto fade-in">
+            <h2 class="text-2xl font-bold mb-6">Checkout</h2>
+            
+            <!-- Checkout Steps -->
+            <div class="flex justify-between mb-6">
+                <div class="step flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center">1</div>
+                    <span class="text-sm mt-1">Information</span>
+                </div>
+                <div class="step flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-gray-300 text-gray-700 flex items-center justify-center">2</div>
+                    <span class="text-sm mt-1">Shipping</span>
+                </div>
+                <div class="step flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-gray-300 text-gray-700 flex items-center justify-center">3</div>
+                    <span class="text-sm mt-1">Payment</span>
+                </div>
+                <div class="step flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-gray-300 text-gray-700 flex items-center justify-center">4</div>
+                    <span class="text-sm mt-1">Review</span>
+                </div>
+            </div>
+            
+            <!-- Checkout Steps Content -->
+            <div class="checkout-steps">
+                <!-- Step 1: Customer Information -->
+                <div id="step-1" class="checkout-step active">
+                    <h3 class="text-lg font-semibold mb-4">Customer Information</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Full Name</label>
+                            <input type="text" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Email</label>
+                            <input type="email" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Phone</label>
+                            <input type="tel" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div class="flex justify-between">
+                            <button type="button" onclick="showTab('products')" class="px-4 py-2 text-gray-600 hover:text-gray-800">
+                                <i class="fas fa-arrow-left mr-1"></i> Continue Shopping
+                            </button>
+                            <button type="button" onclick="nextStep(2)" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                Next: Shipping <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Step 2: Shipping Method -->
+                <div id="step-2" class="checkout-step">
+                    <h3 class="text-lg font-semibold mb-4">Shipping Method</h3>
+                    <div class="space-y-4">
+                        <div class="border rounded p-4 hover:border-blue-500 cursor-pointer">
+                            <div class="flex justify-between">
+                                <div>
+                                    <h4 class="font-medium">Standard Shipping</h4>
+                                    <p class="text-sm text-gray-600">3-5 business days</p>
+                                </div>
+                                <span>$4.99</span>
+                            </div>
+                        </div>
+                        <div class="border rounded p-4 hover:border-blue-500 cursor-pointer">
+                            <div class="flex justify-between">
+                                <div>
+                                    <h4 class="font-medium">Express Shipping</h4>
+                                    <p class="text-sm text-gray-600">1-2 business days</p>
+                                </div>
+                                <span>$9.99</span>
+                            </div>
+                        </div>
+                        <div class="border rounded p-4 hover:border-blue-500 cursor-pointer">
+                            <div class="flex justify-between">
+                                <div>
+                                    <h4 class="font-medium">Free Shipping</h4>
+                                    <p class="text-sm text-gray-600">5-7 business days (orders over $50)</p>
+                                </div>
+                                <span>$0.00</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <button type="button" onclick="prevStep(1)" class="px-4 py-2 text-gray-600 hover:text-gray-800">
+                                <i class="fas fa-arrow-left mr-1"></i> Back
+                            </button>
+                            <button type="button" onclick="nextStep(3)" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                Next: Payment <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Payment Method -->
+                <div id="step-3" class="checkout-step">
+                    <h3 class="text-lg font-semibold mb-4">Payment Method</h3>
+                    <div class="space-y-4">
+                        <div class="border rounded p-4 hover:border-blue-500 cursor-pointer">
+                            <div class="flex items-center">
+                                <i class="fab fa-cc-visa text-2xl text-blue-600 mr-3"></i>
+                                <span>Credit/Debit Card</span>
+                            </div>
+                        </div>
+                        <div class="border rounded p-4 hover:border-blue-500 cursor-pointer">
+                            <div class="flex items-center">
+                                <i class="fab fa-paypal text-2xl text-blue-500 mr-3"></i>
+                                <span>PayPal</span>
+                            </div>
+                        </div>
+                        <div class="border rounded p-4 hover:border-blue-500 cursor-pointer">
+                            <div class="flex items-center">
+                                <i class="fas fa-money-bill-wave text-2xl text-green-500 mr-3"></i>
+                                <span>Cash on Delivery</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Credit Card Form (shown when credit card is selected) -->
+                        <div id="credit-card-form" class="border rounded p-4 mt-4 space-y-3">
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Card Number</label>
+                                <input type="text" placeholder="1234 5678 9012 3456" class="w-full p-2 border rounded">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-1">Expiry Date</label>
+                                    <input type="text" placeholder="MM/YY" class="w-full p-2 border rounded">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-1">CVV</label>
+                                    <input type="text" placeholder="123" class="w-full p-2 border rounded">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Name on Card</label>
+                                <input type="text" placeholder="John Doe" class="w-full p-2 border rounded">
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button type="button" onclick="prevStep(2)" class="px-4 py-2 text-gray-600 hover:text-gray-800">
+                                <i class="fas fa-arrow-left mr-1"></i> Back
+                            </button>
+                            <button type="button" onclick="nextStep(4)" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                Next: Review Order <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Review Order -->
+                <div id="step-4" class="checkout-step">
+                    <h3 class="text-lg font-semibold mb-4">Review Your Order</h3>
+                    <div class="border rounded p-4 mb-4">
+                        <h4 class="font-medium mb-2">Order Summary</h4>
+                        <div id="review-items" class="space-y-2 mb-3">
+                            <!-- Cart items will be loaded here -->
+                        </div>
+                        <div class="border-t pt-2 space-y-1">
+                            <div class="flex justify-between">
+                                <span>Subtotal</span>
+                                <span>$<span id="review-subtotal">0.00</span></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Shipping</span>
+                                <span>$<span id="review-shipping">0.00</span></span>
+                            </div>
+                            <div class="flex justify-between font-bold text-lg">
+                                <span>Total</span>
+                                <span>$<span id="review-total">0.00</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border rounded p-4 mb-4">
+                        <h4 class="font-medium mb-2">Shipping Information</h4>
+                        <div id="review-shipping-info">
+                            <!-- Shipping info will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="border rounded p-4 mb-4">
+                        <h4 class="font-medium mb-2">Payment Method</h4>
+                        <div id="review-payment-method">
+                            <!-- Payment method will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between">
+                        <button type="button" onclick="prevStep(3)" class="px-4 py-2 text-gray-600 hover:text-gray-800">
+                            <i class="fas fa-arrow-left mr-1"></i> Back
+                        </button>
+                        <button type="button" onclick="placeOrder()" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                            Place Order <i class="fas fa-check ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Order Confirmation Tab -->
+        <div id="order-confirmation" class="tab-content p-6 max-w-2xl mx-auto text-center fade-in">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <div class="text-green-500 text-5xl mb-4">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">Order Confirmed!</h2>
+                <p class="text-gray-600 mb-6">Thank you for your purchase. Your order #<span id="order-number">12345</span> has been placed successfully.</p>
+                <p class="mb-6">A confirmation email has been sent to your registered email address.</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="showTab('products')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                        Continue Shopping
+                    </button>
+                    <button onclick="showTab('home')" class="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-50">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg p-4 transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Your Cart</h2>
+            <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div id="cart-items" class="space-y-3">
+            <!-- Cart items will be loaded here -->
+        </div>
+        
+        <div class="border-t mt-4 pt-4 space-y-2">
+            <div class="flex justify-between">
+                <span>Subtotal</span>
+                <span>$<span id="cart-subtotal">0.00</span></span>
+            </div>
+            <div class="flex justify-between">
+                <span>Shipping</span>
+                <span>$<span id="cart-shipping">0.00</span></span>
+            </div>
+            <div class="flex justify-between font-bold">
+                <span>Total</span>
+                <span>$<span id="cart-total">0.00</span></span>
+            </div>
+        </div>
+        
+        <button onclick="startCheckout()" class="mt-4 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition">
+            Proceed to Checkout <i class="fas fa-arrow-right ml-1"></i>
+        </button>
+    </div>
+    
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer class="bg-white text-center p-4 shadow-inner">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
+                <div>
+                    <h3 class="font-bold mb-2">Shop</h3>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="text-gray-600 hover:text-blue-500" onclick="showTab('products')">All Products</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-500">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-500">Best Sellers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Customer Service</h3>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="text-gray-600 hover:text-blue-500">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-500">FAQs</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-500">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">About Us</h3>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="text-gray-600 hover:text-blue-500">Our Story</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-500">Sustainability</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Connect With Us</h3>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-500"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-500"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-500">&copy; 2025 Trendy Tees. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Product Data
+        const products = [
+            { id: 1, name: 'Classic Tee', price: 19.99, category: 'men', 
+              image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0W4OXWl4dgXweyRMje8YoXBkpqLuDaUWY9P-V0LrhXiZorIqVexK2wHPZlCr7vmQk6j0&usqp=CAU',
+              description: 'Our signature classic tee made from 100% organic cotton. Perfect for everyday wear.' },
+            { id: 2, name: 'V-Neck Tee', price: 21.99, category: 'women', 
+              image: 'https://i.pinimg.com/564x/c1/1d/16/c11d164de692594acf53c9a855093139.jpg',
+              description: 'Flattering V-neck design with a comfortable fit. Available in multiple colors.' },
+            { id: 3, name: 'Striped Tee', price: 22.99, category: 'men', 
+              image: 'https://content-management-files.canva.com/cdn-cgi/image/f=auto,q=70/2fdbd7ab-f378-4c63-8b21-c944ad2633fd/header_t-shirts2.jpg',
+              description: 'Vertical striped pattern that adds a stylish touch to your casual outfits.' },
+            { id: 4, name: 'Pocket Tee', price: 18.99, category: 'men', 
+              image: 'https://5.imimg.com/data5/SELLER/Default/2022/6/UQ/BI/FF/31943666/mens-tshirt.jpeg',
+              description: 'Classic tee with a chest pocket for added functionality and style.' },
+            { id: 5, name: 'Graphic Tee', price: 24.99, category: 'women', 
+              image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQgX9xuU6NaZ4xfkkw95gsW77MzQCyxjLzdsmKW66u7E9lRFTws0x03IabaNB-sm54urs&usqp=CAU',
+              description: 'Unique graphic print that makes a statement. Limited edition design.' },
+            { id: 6, name: 'Oversized Tee', price: 20.99, category: 'women', 
+              image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWWIm0zFsNa682HP2falel3ZwCeXEum-ZhcEVR9FN60OM0_xeHOl5l3q2TTb_L-RkadsY&usqp=CAU',
+              description: 'Relaxed fit with a modern oversized silhouette for ultimate comfort.' }
+        ];
+
+        // Shopping Cart
+        const cart = [];
+        let currentStep = 1;
+        let shippingMethod = 'standard';
+        let paymentMethod = 'credit';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            updateCart();
+        });
+
+        // Render all products
+        function renderProducts() {
+            const container = document.getElementById('product-grid');
+            container.innerHTML = '';
+            
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition';
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover cursor-pointer" 
+                         onclick="showProductDetail(${product.id})">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg cursor-pointer" onclick="showProductDetail(${product.id})">${product.name}</h3>
+                        <p class="text-gray-600 mb-2">$${product.price.toFixed(2)}</p>
+                        <button onclick="addToCart(${product.id})" class="w-full bg-blue-500 text-white py-1 rounded hover:bg-blue-600 transition">
+                            Add to Cart <i class="fas fa-cart-plus ml-1"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter products by category
+        function filterProducts(category) {
+            const container = document.getElementById('product-grid');
+            container.innerHTML = '';
+            
+            products.forEach(product => {
+                if (category === 'all' || product.category === category) {
+                    const card = document.createElement('div');
+                    card.className = 'bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition';
+                    card.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="showProductDetail(${product.id})">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg cursor-pointer" onclick="showProductDetail(${product.id})">${product.name}</h3>
+                            <p class="text-gray-600 mb-2">$${product.price.toFixed(2)}</p>
+                            <button onclick="addToCart(${product.id})" class="w-full bg-blue-500 text-white py-1 rounded hover:bg-blue-600 transition">
+                                Add to Cart <i class="fas fa-cart-plus ml-1"></i>
+                            </button>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                }
+            });
+        }
+
+        // Show product detail
+        function showProductDetail(id) {
+            const product = products.find(p => p.id === id);
+            const container = document.getElementById('product-detail-content');
+            
+            container.innerHTML = `
+                <div class="md:flex">
+                    <div class="md:w-1/2">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="md:w-1/2 p-6">
+                        <h2 class="text-2xl font-bold mb-2">${product.name}</h2>
+                        <p class="text-xl text-blue-600 font-bold mb-4">$${product.price.toFixed(2)}</p>
+                        <p class="text-gray-600 mb-4">${product.description}</p>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-1">Size</label>
+                            <select class="w-full p-2 border rounded">
+                                <option>Small</option>
+                                <option>Medium</option>
+                                <option>Large</option>
+                                <option>XL</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-1">Color</label>
+                            <div class="flex space-x-2">
+                                <button class="w-8 h-8 rounded-full bg-blue-500 border-2 border-blue-700"></button>
+                                <button class="w-8 h-8 rounded-full bg-black border-2 border-gray-700"></button>
+                                <button class="w-8 h-8 rounded-full bg-white border-2 border-gray-300"></button>
+                                <button class="w-8 h-8 rounded-full bg-red-500 border-2 border-red-700"></button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-1">Quantity</label>
+                            <div class="flex items-center">
+                                <button class="px-3 py-1 bg-gray-200 rounded-l">-</button>
+                                <input type="number" value="1" min="1" class="w-16 text-center border-t border-b">
+                                <button class="px-3 py-1 bg-gray-200 rounded-r">+</button>
+                            </div>
+                        </div>
+                        
+                        <button onclick="addToCart(${product.id})" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
+                            Add to Cart <i class="fas fa-cart-plus ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            showTab('product-detail');
+        }
+
+        // Add product to cart
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            cart.push(product);
+            updateCart();
+            
+            // Show a notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg flex items-center';
+            notification.innerHTML = `
+                <i class="fas fa-check-circle mr-2"></i> Added to cart!
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+
+        // Update cart UI
+        function updateCart() {
+            document.getElementById('cart-count').textContent = cart.length;
+            document.getElementById('cart-count-mobile').textContent = cart.length;
+            
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            
+            let subtotal = 0;
+            let shipping = 4.99; // Default shipping cost
+            
+            cart.forEach((item, index) => {
+                subtotal += item.price;
+                
+                const div = document.createElement('div');
+                div.className = 'flex justify-between items-center border-b pb-2';
+                div.innerHTML = `
+                    <div class="flex items-center">
+                        <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover mr-2">
+                        <div>
+                            <p class="font-bold">${item.name}</p>
+                            <p class="text-sm">$${item.price.toFixed(2)}</p>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                cartItems.appendChild(div);
+            });
+            
+            // Free shipping for orders over $50
+            if (subtotal >= 50) {
+                shipping = 0;
+            }
+            
+            // Update cart totals
+            document.getElementById('cart-subtotal').textContent = subtotal.toFixed(2);
+            document.getElementById('cart-shipping').textContent = shipping.toFixed(2);
+            document.getElementById('cart-total').textContent = (subtotal + shipping).toFixed(2);
+            
+            // Update review section if on checkout page
+            if (document.getElementById('checkout').classList.contains('active')) {
+                updateReviewSection();
+            }
+        }
+
+        // Remove item from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        // Toggle cart sidebar
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('overlay');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            sidebar.classList.toggle('translate-x-full');
+            overlay.classList.toggle('hidden');
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Show tab content
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Close cart if open
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('overlay');
+            if (!sidebar.classList.contains('translate-x-full')) {
+                sidebar.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+            
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.add('hidden');
+            
+            // Reset checkout steps if leaving checkout
+            if (tabId !== 'checkout') {
+                currentStep = 1;
+                document.querySelectorAll('.checkout-step').forEach(step => {
+                    step.classList.remove('active');
+                });
+                document.getElementById('step-1').classList.add('active');
+            }
+        }
+
+        // Start checkout process
+        function startCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add some items before checkout.');
+                return;
+            }
+            
+            showTab('checkout');
+            toggleCart();
+            updateReviewSection();
+        }
+
+        // Move to next checkout step
+        function nextStep(step) {
+            if (step === 2) {
+                // Validate step 1
+                const inputs = document.querySelectorAll('#step-1 input');
+                let isValid = true;
+                
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        input.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        input.classList.remove('border-red-500');
+                    }
+                });
+                
+                if (!isValid) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+            }
+            
+            document.getElementById(`step-${currentStep}`).classList.remove('active');
+            currentStep = step;
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+            
+            // Update step indicators
+            document.querySelectorAll('.step div').forEach((div, index) => {
+                if (index < step - 1) {
+                    div.classList.remove('bg-gray-300', 'text-gray-700');
+                    div.classList.add('bg-green-500', 'text-white');
+                } else if (index === step - 1) {
+                    div.classList.remove('bg-gray-300', 'text-gray-700');
+                    div.classList.add('bg-blue-500', 'text-white');
+                } else {
+                    div.classList.remove('bg-blue-500', 'text-white', 'bg-green-500');
+                    div.classList.add('bg-gray-300', 'text-gray-700');
+                }
+            });
+            
+            // Update review section when moving to step 4
+            if (step === 4) {
+                updateReviewSection();
+            }
+        }
+
+        // Move to previous checkout step
+        function prevStep(step) {
+            document.getElementById(`step-${currentStep}`).classList.remove('active');
+            currentStep = step;
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+            
+            // Update step indicators
+            document.querySelectorAll('.step div').forEach((div, index) => {
+                if (index < step - 1) {
+                    div.classList.remove('bg-gray-300', 'text-gray-700');
+                    div.classList.add('bg-green-500', 'text-white');
+                } else if (index === step - 1) {
+                    div.classList.remove('bg-gray-300', 'text-gray-700');
+                    div.classList.add('bg-blue-500', 'text-white');
+                } else {
+                    div.classList.remove('bg-blue-500', 'text-white', 'bg-green-500');
+                    div.classList.add('bg-gray-300', 'text-gray-700');
+                }
+            });
+        }
+
+        // Update review section in checkout
+        function updateReviewSection() {
+            const reviewItems = document.getElementById('review-items');
+            reviewItems.innerHTML = '';
+            
+            let subtotal = 0;
+            let shipping = 4.99; // Default shipping cost
+            
+            cart.forEach(item => {
+                subtotal += item.price;
+                
+                const div = document.createElement('div');
+                div.className = 'flex justify-between items-center';
+                div.innerHTML = `
+                    <div class="flex items-center">
+                        <img src="${item.image}" alt="${item.name}" class="w-10 h-10 object-cover mr-2">
+                        <span>${item.name}</span>
+                    </div>
+                    <span>$${item.price.toFixed(2)}</span>
+                `;
+                reviewItems.appendChild(div);
+            });
+            
+            // Free shipping for orders over $50
+            if (subtotal >= 50) {
+                shipping = 0;
+            }
+            
+            // Update review totals
+            document.getElementById('review-subtotal').textContent = subtotal.toFixed(2);
+            document.getElementById('review-shipping').textContent = shipping.toFixed(2);
+            document.getElementById('review-total').textContent = (subtotal + shipping).toFixed(2);
+            
+            // Update shipping info
+            const shippingInfo = document.getElementById('review-shipping-info');
+            shippingInfo.innerHTML = `
+                <p>Standard Shipping (3-5 business days)</p>
+                <p class="text-sm text-gray-600">Free shipping on orders over $50</p>
+            `;
+            
+            // Update payment method
+            const paymentMethod = document.getElementById('review-payment-method');
+            paymentMethod.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fab fa-cc-visa text-2xl text-blue-600 mr-3"></i>
+                    <span>Credit Card ending in 1234</span>
+                </div>
+            `;
+        }
+
+        // Place order
+        function placeOrder() {
+            // In a real app, you would send the order to your backend here
+            // For this demo, we'll just show a confirmation
+            
+            // Generate random order number
+            const orderNumber = Math.floor(Math.random() * 90000) + 10000;
+            document.getElementById('order-number').textContent = orderNumber;
+            
+            // Clear cart
+            cart.length = 0;
+            updateCart();
+            
+            // Show confirmation
+            showTab('order-confirmation');
+        }
+    </script>
+</body>
+</html>
